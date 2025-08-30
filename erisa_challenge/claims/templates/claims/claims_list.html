@@ -1,0 +1,17 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Claims List</title>
+    <link href="{% static 'claims/styles.css' %}" rel="stylesheet">
+</head>
+<body>
+    <h1>Claims List</h1>
+    <ul>
+        <li><a href="{% url 'claim_detail' claim_id=1 %}">Claim 1</a></li>
+        <li><a href="{% url 'claim_detail' claim_id=2 %}">Claim 2</a></li>
+        <li><a href="{% url 'claim_detail' claim_id=3 %}">Claim 3</a></li>
+    </ul>
+</body>
+</html>
