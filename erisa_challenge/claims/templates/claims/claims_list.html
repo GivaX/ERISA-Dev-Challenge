@@ -7,11 +7,36 @@
     <link href="{% static 'claims/styles.css' %}" rel="stylesheet">
 </head>
 <body>
-    <h1>Claims List</h1>
-    <ul>
-        <li><a href="{% url 'claim_detail' claim_id=1 %}">Claim 1</a></li>
-        <li><a href="{% url 'claim_detail' claim_id=2 %}">Claim 2</a></li>
-        <li><a href="{% url 'claim_detail' claim_id=3 %}">Claim 3</a></li>
-    </ul>
+    <h1>Claims</h1>
+    <div class="claims-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Claim ID</th>
+                    <th>Patient</th>
+                    <th>Billed</th>
+                    <th>Paid</th>
+                    <th>Status</th>
+                    <th>Insurer</th>
+                    <th>Discharge Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for claim in claims %}
+                <tr>
+                    <td>{{ claim.claim_id }}</td>
+                    <td>{{ claim.patient_name }}</td>
+                    <td>${{ claim.billed_amount }}</td>
+                    <td>${{ claim.paid_amount }}</td>
+                    <td>{{ claim.status }}</td>
+                    <td>{{ claim.insurer_name }}</td>
+                    <td>{{ claim.discharge_date }}</td>
+                    <td><button>View</button></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
